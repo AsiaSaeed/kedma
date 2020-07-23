@@ -28,11 +28,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
-        seconds: 10,
+        seconds: 5,
         navigateAfterSeconds: new AfterSplash(),
-        title: new Text('\n\n\n\nK   E   D   M   A     C   O   S   M   E   T   I   C   S'
-            '\n\tF   O   R   E   V   E   R     Y   O   U   N   G',
-            style: TextStyle(color: splashTxtColor, fontSize: 20, fontFamily: 'Burford')),
+        title: new Text('\n\n\n\nK   E   D   M   A         C   O   S   M   E   T   I   C   S'
+            '\n    F   O   R   E   V   E   R        Y   O   U   N   G',
+            style: TextStyle(color: splashTxtColor, fontSize: 20)),
         image: new Image.asset('assets/logo.png', width: 200, height: 400),
         backgroundColor: splashColor,
         styleTextUnderTheLoader: new TextStyle(),
@@ -42,7 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 class AfterSplash extends StatelessWidget{
-  Color appBarCol = new Color(int.parse("0xff002046"));
+  Color darkBlueAppCol = new Color(int.parse("0xff002046"));
+  Color yellowAppCol = new Color(int.parse("0xffdfd29e"));
   @override
   Widget build(BuildContext context) {
     return new Flippo(
@@ -51,8 +52,9 @@ class AfterSplash extends StatelessWidget{
       ),
       body: new Scaffold(
         appBar: new AppBar(
+          title:Center(child:Image.asset('assets/logo.png', fit: BoxFit.cover,height: 90,width: 90)),
           automaticallyImplyLeading: false,
-          backgroundColor: appBarCol,
+          backgroundColor: darkBlueAppCol,
         ),
         body: new Center(
           child: new Text("Done!",
@@ -64,6 +66,30 @@ class AfterSplash extends StatelessWidget{
       ),
       drawer: new Scaffold(
         backgroundColor: Colors.black,
+        body:new Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 50, 8, 20),
+                child: Image.asset('assets/logo.png',height: 200,width: 300),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+                child: Text('Home',style: TextStyle(color: yellowAppCol,fontSize: 20),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+                child: Text('Kedma Exclusives',style: TextStyle(color: yellowAppCol,fontSize: 20),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+                child: Text('Shop',style: TextStyle(color: yellowAppCol,fontSize: 20),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+                child: Text('Discount',style: TextStyle(color: yellowAppCol,fontSize: 20),),
+              )
+      ],
+        ),
       ),
     );;
   }
